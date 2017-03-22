@@ -15,6 +15,9 @@ buildId     =  sys.argv[4]
 ipaPath  =  homePath + '/build/' + buildNumber + '/vbk_'+version+'_' + buildId + '_Prd_Sit.ipa'
 ipaName  =  'vbk_'+version+'_' + buildId + '_Prd_Sit.ipa'
 
+ipaPlistPath=ipaPath+'.plist'
+ipaPlistName=ipaName+'.plist'
+
 line = 'curl -s -F file=@'+ ipaPath +' -F "uKey=a7db243419b78955c82d1b873c74e17c" -F "_api_key=b10428e23005eb6928df62ff740d913d" https://qiniu-storage.pgyer.com/apiv1/app/upload'
 print line
 (status, output) = commands.getstatusoutput(line)
@@ -52,12 +55,14 @@ b   = cow.get_bucket(bucket_name)
 # data:      如果从buffer中上传数据，就需要此参数。表示文件内容。
 # keep_name: 上传后的文件是否保持和filename一样。默认为False，用文件内容的MD5值
 # override:  上传同名文件，是否强制覆盖
-#try:
+try:
 c =b.put(ipaPath, keep_name=True)   # 上传本地文件a，并且用a作为上传后的名字
 d =b.move(ipaPath, ipaName)                      # 将'a' 改名为'b'
-#except CowException as e:
-#    print e.url         # 出错的url
-#    print e.status_code # 返回码
-#    print e.content     # api 错误的原因
+e =b.put(ipaPlistPath,keep_name=True) #上传对应的plist文件
+f =b.move(ipaPlistPath,ipaPlistName)
+except CowException as e:
+    print e.url         # 出错的url
+    print e.status_code # 返回码
+    print e.content     # api 错误的原因
 
 print c
