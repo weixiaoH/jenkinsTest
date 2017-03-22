@@ -56,10 +56,10 @@ b   = cow.get_bucket(bucket_name)
 # keep_name: 上传后的文件是否保持和filename一样。默认为False，用文件内容的MD5值
 # override:  上传同名文件，是否强制覆盖
 try:
-c =b.put(ipaPath, keep_name=True)   # 上传本地文件a，并且用a作为上传后的名字
-d =b.move(ipaPath, ipaName)                      # 将'a' 改名为'b'
-e =b.put(ipaPlistPath,keep_name=True) #上传对应的plist文件
-f =b.move(ipaPlistPath,ipaPlistName)
+    c =b.put(ipaPath, keep_name=True)   # 上传本地文件a，并且用a作为上传后的名字
+    d =b.move(ipaPath, ipaName)                      # 将'a' 改名为'b'
+    e =b.put(ipaPlistPath,keep_name=True) #上传对应的plist文件
+    f =b.move(ipaPlistPath,ipaPlistName)
 except CowException as e:
     print e.url         # 出错的url
     print e.status_code # 返回码
