@@ -1,11 +1,11 @@
 #!/usr/bin/python
-import commands
+# -*- coding: utf-8 -*-import commands
 import ast
 import sys
 import os
 
-from sevencow import Cow # Cow 地址https://github.com/yueyoum/seven-cow
-
+from sevencow import Cow
+# Cow 地址https://github.com/yueyoum/seven-cow
 homePath    =  sys.argv[1]
 buildNumber =  sys.argv[2]
 version     =  sys.argv[3]
