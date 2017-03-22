@@ -29,5 +29,5 @@ os.chdir(envVar)
 f = open('jenkinsUserGlobal.properties', 'w')
 
 f.write('APPLINK_URL='+appUrl)
-
+f.close()
 print appUrl
