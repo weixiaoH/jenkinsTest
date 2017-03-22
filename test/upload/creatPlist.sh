@@ -7,7 +7,7 @@ echo "creat" > jenkinsUserGlobal.properties
 
 ipaName='vbk_'${VERSION}'_'${BUILD_ID}'_Prd_Sit.ipa'
 
-cat << EOF > ${WORKSPACE}/build/${BUILD_NUMBER}/$PLIST_NAME.plist
+cat << EOF > ${WORKSPACE}/build/${BUILD_NUMBER}/$ipaName.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
