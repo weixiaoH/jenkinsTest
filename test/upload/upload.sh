@@ -6,6 +6,6 @@
 
 
 
-python curl.py  ${HOME} ${BUILD_ID} ${BUILD_ID}
+python curl.py  ${HOME} ${VERSION} ${BUILD_ID}
 
 echo ${appkey}
