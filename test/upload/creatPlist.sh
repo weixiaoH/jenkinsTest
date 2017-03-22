@@ -5,7 +5,7 @@ cd "${WORKSPACE}/build"
 
 echo "creat" > jenkinsUserGlobal.properties
 
-ipaName  =  'vbk_'+ ${VERSION} +'_' + ${BUILD_ID} + '_Prd_Sit.ipa'
+ipaName='vbk_'${VERSION}'_'${BUILD_ID}'_Prd_Sit.ipa'
 
 cat << EOF > ${WORKSPACE}/build/${BUILD_NUMBER}/$PLIST_NAME.plist
 <?xml version="1.0" encoding="UTF-8"?>
