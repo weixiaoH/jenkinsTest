@@ -12,18 +12,18 @@ buildId     =  sys.argv[4]
 ipaPath  =  homePath + '/build/' + buildNumber + '/vbk_'+version+'_' + buildId + '_Prd_Sit.ipa'
 
 line = 'curl -s -F file=@'+ ipaPath +' -F "uKey=a7db243419b78955c82d1b873c74e17c" -F "_api_key=b10428e23005eb6928df62ff740d913d" https://qiniu-storage.pgyer.com/apiv1/app/upload'
-print 'line='+ line
+print line
 (status, output) = commands.getstatusoutput(line)
 
 value = ast.literal_eval(output)
-print 'value =' + value
+print value
 appkey =value['data']['appKey']
 
 appUrl ='https://www.pgyer.com/' + appkey
 
 
 envVar =homePath + '/build'
-print 'envVar=' + envVar
+print envVar
 os.chdir(envVar)
 
 f = open('jenkinsUserGlobal.properties', 'w')
