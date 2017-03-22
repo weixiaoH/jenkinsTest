@@ -2,6 +2,8 @@
 import commands
 import ast
 import sys
+import os
+
 homePath    =  sys.argv[1]
 buildNumber =  sys.argv[2]
 version     =  sys.argv[3]
@@ -20,5 +22,11 @@ appkey =value['data']['appKey']
 appUrl ='https://www.pgyer.com/' + appkey
 
 
+envVar =homePath + '/build'
+os.chdir(envVar)
+
+f = open('jenkinsUserGlobal.properties', 'w')
+
+f.write('APPLINK_URL='+appUrl)
 
 print appUrl
